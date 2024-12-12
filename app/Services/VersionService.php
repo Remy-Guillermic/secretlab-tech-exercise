@@ -26,7 +26,7 @@ class VersionService
             ->defaultSelect()
             ->where('key', $versionData->getKey())
             ->when($versionData->hasTimestamp(), function ($query) use ($versionData) {
-                $query->where('timestamp', '<=', $versionData->getTimestamp());
+                $query->where('timestamp', '<=', $versionData->getCaronDateTimeFromTimestamp());
             })
             ->latest('timestamp')
             ->limit(1)

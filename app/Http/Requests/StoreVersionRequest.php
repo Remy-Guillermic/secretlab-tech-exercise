@@ -22,7 +22,7 @@ class StoreVersionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            '*' => 'nullable',
+            '*' => 'nullable|max:4294967295',
         ];
     }
 }

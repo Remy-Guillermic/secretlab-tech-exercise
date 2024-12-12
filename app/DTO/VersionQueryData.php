@@ -23,7 +23,7 @@ readonly class VersionQueryData
         return $this->timestamp !== null;
     }
 
-    public function getTimestamp(): Carbon
+    public function getCaronDateTimeFromTimestamp(): Carbon
     {
         return Carbon::createFromTimestampUTC($this->timestamp);
     }
