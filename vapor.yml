@@ -4,8 +4,10 @@ environments:
   production:
     memory: 1024
     cli-memory: 512
-    runtime: 'php-8.3:al2'
-    domain: '*.remyguillermic.com'
+    runtime: 'php-8.4:al2'
+    domain: 'secretlab.remyguillermic.com'
+    database: 'secretlab_tech_exercise'
+    queues: false
     build:
       - 'composer install --no-dev'
       - 'php artisan event:cache'
