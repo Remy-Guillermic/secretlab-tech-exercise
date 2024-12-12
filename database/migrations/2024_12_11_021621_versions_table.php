@@ -14,7 +14,7 @@ return new class extends Migration {
             $table->id();
             $table->dateTime('timestamp')->useCurrent()->index();
             $table->string('key')->index();
-            $table->binary('value')->nullable();
+            $table->longText('value')->nullable()->charset('binary');
         });
     }
 

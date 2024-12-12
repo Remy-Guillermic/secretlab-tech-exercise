@@ -38,7 +38,6 @@ class VersionService
     {
         $versions = $data
             ->mapWithKeys(function ($value, $key) {
-                dump($value);
                 return [
                     'key' => $key,
                     'value' => $value,
