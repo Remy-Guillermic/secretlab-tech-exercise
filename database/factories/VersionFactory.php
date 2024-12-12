@@ -17,9 +17,9 @@ class VersionFactory extends Factory
     public function definition(): array
     {
         return [
-            'timestamp' => now(),
-            'key' => fake()->word(),
-            'value' => fake()->word(),
+            'timestamp' => fake()->dateTime(timezone: 'UTC'),
+            'key' => fake()->unique()->word(),
+            'value' => fake()->unique()->word(),
         ];
     }
 }

@@ -56,7 +56,7 @@ test('Show one records as guest with timestamp', function (int $timeDiff, ?bool 
     $commonKey = fake()->word;
     $olderTimestamp = $now->copy()->subDays(21);
 
-    $hiddenVersion = Version::factory(['key' => $commonKey])->create();
+    $hiddenVersion = Version::factory(['key' => $commonKey, 'timestamp' => $now])->create();
     $searchedVersion = Version::factory(['key' => $commonKey, 'timestamp' => $olderTimestamp])->create();
 
     $response = $this->json(
@@ -102,6 +102,8 @@ test('Test exercise workflow', function () {
     $this->json(method: 'GET', uri: route('object.show', ['key' => $testKey]))
         ->assertOk()
         ->assertJsonFragment([$testKey => $testValue1]);
+
+    sleep(1);
 
     $this->json(method: 'POST', uri: route('object.store'), data: [$testKey => $testValue2])
         ->assertStatus(201);
